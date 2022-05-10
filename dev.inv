@@ -1,1 +1,2 @@
+[dev]
 172.16.0.7 ansible_user=root
