@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:latest
 WORKDIR /opt
 RUN yum install wget zip -y
 MAINTAINER <sappoguashok462@gmail.com>
