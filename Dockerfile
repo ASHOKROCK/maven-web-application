@@ -1,2 +1,9 @@
-FROM tomcat:8.0.20-jre8
-COPY target/maven-web-app*.war /usr/local/tomcat/webapps/maven-web-application.war
+FROM centos:7
+WORKDIR /opt
+RUN yum install wget zip -y
+MAINTAINER <sappoguashok462@gmail.com>
+ENV DEV=BUILD
+ENV PROD=RELEASE
+USER root
+LABEL PROJECT=Maven-based
+COPY target/maven-web-app*.war /root/maven-web-application.war
