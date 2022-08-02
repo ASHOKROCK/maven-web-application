@@ -1,6 +1,6 @@
-FROM ubuntu:latest
+FROM centos:latest
 WORKDIR /opt
-RUN  apt install wget  git zip -y
+RUN  yum install wget  git zip -y
 MAINTAINER <sappoguashok462@gmail.com>
 ENV DEV=BUILD
 COPY . .
