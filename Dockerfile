@@ -1,11 +1,4 @@
-FROM maven:3.6.3-openjdk
-WORKDIR /opt
-COPY . .
-MAINTAINER <sappoguashok462@gmail.com>
-ENV DEV=BUILD
-RUN mvn clean package
-ENV PROD=RELEASE
+FROM openjdk:8-jre-alpine
+COPY .  .
 USER root
-LABEL PROJECT=Maven-based
-
-
+LABEL foo=bar
