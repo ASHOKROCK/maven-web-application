@@ -1,9 +1,9 @@
-FROM centos:latest
+FROM maven:3.6.3-openjdk
 WORKDIR /opt
-RUN  yum install wget  git zip -y
+COPY . .
 MAINTAINER <sappoguashok462@gmail.com>
 ENV DEV=BUILD
-COPY . .
+RUN mvn clean package
 ENV PROD=RELEASE
 USER root
 LABEL PROJECT=Maven-based
