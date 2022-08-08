@@ -6,20 +6,7 @@
   gather_facts: false
   tasks:
     - name: Install Httpd
-      yum:
-        name: httpd
-        state: installed
-    - name: Enable Httpd
-      service:
-        name: httpd
-        state: present
-        enabled: yes
-    - name: start the httpd
-      service:
-        name: httpd
-        state: started
-    - name: Copy static content
-      copy:
-        src: index.html
-        dest: /var/www/html
-    
+      file:
+        path: /home/ec2-user/myfile
+        state: touch
+        mode: u+rw,g-wx,o-rwx
