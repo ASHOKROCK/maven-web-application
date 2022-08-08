@@ -1,28 +1,25 @@
 ---
 - hosts: all
-  become: True
+  become: true
+  become_method: sudo
+  remote_user: ec2-user
+  gather_facts: false
   tasks:
-    - name: Install python pip
+    - name: Install Httpd
       yum:
-        name: python-pip
-        state: present
-    - name: Install docker
-      yum:
-        name: docker
-        state: present
-    - name: start docker
+        name: httpd
+        state: installed
+    - name: Enable Httpd
       service:
-        name: docker
-        state: started
-        enabled: true
-    - name: Install docker-py python module
-      pip:
-        name: docker-py
+        name: httpd
         state: present
-    - name: Start the container
-      docker_container:
-        name: newjenimage
-        image: "nginx:latest"
+        enabled: yes
+    - name: start the httpd
+      service:
+        name: httpd
         state: started
-        published_ports:
-          - 0.0.0.0:8082:8082
+    - name: Copy static content
+      copy:
+        src: index.html
+        dest: /var/www/html
+    
