@@ -10,3 +10,11 @@
         path: /home/ec2-user/myfile
         state: touch
         mode: u+rw,g-wx,o-rwx
+    - name: install ntpdate
+      package:
+        name: ntpdate
+        state: present
+    - name: install ntpdate
+      package:
+        name: git
+        state: present
