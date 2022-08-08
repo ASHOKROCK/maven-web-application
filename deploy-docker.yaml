@@ -22,7 +22,7 @@
     - name: Start the container
       docker_container:
         name: newjenimage
-        image: "ashokganidocker/newjenimage:latest"
+        image: "nginx:latest"
         state: started
         published_ports:
           - 0.0.0.0:8082:8082
