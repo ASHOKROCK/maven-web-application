@@ -1,2 +1,2 @@
 [WEBSERVER]
-10.80.3.42 remote_user=ec2-user ansible_become=true
+10.80.3.151 remote_user=ec2-user ansible_become=true
