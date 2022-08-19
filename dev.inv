@@ -1,2 +1,2 @@
 [WEBSERVER]
-10.80.3.151 remote_user=root ansible_become=true
+10.80.3.47 remote_user=root ansible_become=true
