@@ -15,3 +15,12 @@ resource "aws_subnet" "my_subnet" {
     Name = "tf-example"
   }
 }
+
+resource "aws_vpc" "my_vpc" {
+  availability_zone = "us-east-1a"
+
+  tags = {
+    Name = "Create subnet for us-east-1a"
+  }
+}
+
