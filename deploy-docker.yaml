@@ -1,9 +1,9 @@
 ---
-- hosts: localhost
+- hosts: all
   become: yes
   become_method: sudo
-  remote_user: ec2-user
-  gather_facts: false
+  remote_user: root
+  gather_facts: yes
   tasks:
     - name: install ntpdate
       package:
@@ -44,17 +44,17 @@
         owner: root
         group: root
         mode: '0777'
-     - name: check git version
-       shell: git --version
-     - name: check httpd status
-       shell: systemctl httpd status
-     - name: Create a file
-       file: 
-         path:  /root/myfile
-         state: touch
-         mode: '0700'
-     - name: Create a file
-       file: 
-         path:  /root/mynewdir
-         state: directory
-         mode: '0700'
+    - name: check git version
+      shell: git --version
+    - name: check httpd status
+      shell: systemctl httpd status
+    - name: Create a file
+      file:
+        path:  /root/myfile
+        state: touch
+        mode: '0700'
+    - name: Create a file
+      file:
+        path:  /root/mynewdir
+        state: directory
+        mode: '0700'
