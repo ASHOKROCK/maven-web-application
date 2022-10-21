@@ -16,11 +16,5 @@ resource "aws_subnet" "my_subnet" {
   }
 }
 
-resource "aws_vpc" "custom_vpc" {
-  cidr_block = "172.23.0.0/16"
 
-  tags = {
-    Name = "Create subnet for us-east-1a"
-  }
-}
 
