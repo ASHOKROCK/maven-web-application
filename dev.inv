@@ -1,2 +1,2 @@
-[WEBSERVER]
-10.80.1.251 ansible_user=root
+[webserver]
+10.80.1.251 ansible_user=root ansible_ssh_password=ashok123
