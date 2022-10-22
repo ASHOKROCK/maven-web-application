@@ -1,31 +1,11 @@
 ---
-- hosts: all
+- hosts: webserver
   become: yes
   become_method: sudo
   gather_facts: false
   
   
   tasks:
-    - name: install ntpdate
-      package:
-        name: ntpdate
-        state: latest
-    - name: install ntpdate
-      package:
-        name: git
-        state: pesent
-    - name: install ntpdate
-      package:
-        name: make
-        state: latest
-    - name: install ntpdate
-      package:
-        name: gcc
-        state: latest
-    - name: install ntpdate
-      package:
-        name: traceroute
-        state: latest
     - name: Install Httpd
       yum:
         name: httpd
