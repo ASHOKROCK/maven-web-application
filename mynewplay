@@ -1,0 +1,94 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: false
+  vars:
+    pkg_name: httpd
+  tasks:
+    - name: Install a package
+      yum:
+        name: "{{pkg_name}}"
+        state: installed
+    - name: Enable Package
+      service:
+        name: "{{pkg_name}}"
+        enabled: yes
+    - name: start the httpd
+      service:
+        name: "{{pkg_name}}"
+        state: started
+    - name: copy a index file
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: '0700'
+    - name: create a file
+      file:
+        path: /root/mynewansi1
+        state: touch
+        owner: root
+        group: root
+    - name: create a directory
+      file:
+        path: /root/mycustomdir
+        state: touch
+        owner: root
+        group: root
+        mode: '0700'
+    - name: create another file
+      file:
+        path: /root/myanotherfile
+        state: touch
+        owner: root
+        group: root
+        mode: '0777'
+    - name: check a installed packs
+      command: yum list installed | grep httpd
+    - name: write a shell script
+      shell: yum install zip wget git maven -y && mvn -v
+    - name : run a script
+      script: /root/script1.sh
+    - name: create a user
+      user:
+        name: myashok
+        state: present
+        uid: 1010
+        create_home: yes
+    - name: create a Another User
+      user:
+        name: mynewashok1
+        state: present
+        uid: 1011
+        create_home: yes
+    - name: Create a group
+      group:
+        name: myashok1
+        state: present
+        gid: 1006
+    - name: Create a group
+      group:
+        name: myashok2
+        state: present
+        gid: 1007
+    - name: Install packages
+      yum:
+        name: "{{item}}"
+        state: installed
+      with_items:
+        - git
+        - gcc
+        - make
+        - httpd
+        - zip
+    - name: Install software
+      yum:
+        name: ['wget','zip','traceroute','maven','unzip']
+        state: installed
+
+    - name: create a custom copy
+      copy:
+        src: mytemp.j2
+        dest: /root/index.html
+
