@@ -51,8 +51,7 @@
       command: yum list installed | grep httpd
     - name: write a shell script
       shell: yum install zip wget git maven -y && mvn -v
-    - name : run a script
-      script: /root/script1.sh
+    
     - name: create a user
       user:
         name: myashok
