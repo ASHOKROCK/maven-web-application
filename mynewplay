@@ -1,6 +1,9 @@
 ---
-- hosts: localhost
+- hosts: all
   become: yes
+  become_method: sudo
+  remote_user: root
+  connection: ssh
   gather_facts: false
   vars:
     pkg_name: httpd
