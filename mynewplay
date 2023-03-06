@@ -9,7 +9,7 @@
     pkg_name: httpd
   tasks:
     - name: Install a package
-      yum:
+      package:
         name: "{{pkg_name}}"
         state: installed
     - name: Enable Package
@@ -47,10 +47,8 @@
         owner: root
         group: root
         mode: '0777'
-    - name: check a installed packs
-      command: yum list installed | grep httpd
-    - name: write a shell script
-      shell: yum install zip wget git maven -y && mvn -v
+    
+    
     
     - name: create a user
       user:
@@ -75,7 +73,7 @@
         state: present
         gid: 1007
     - name: Install packages
-      yum:
+      package:
         name: "{{item}}"
         state: installed
       with_items:
@@ -85,7 +83,7 @@
         - httpd
         - zip
     - name: Install software
-      yum:
+      package:
         name: ['wget','zip','traceroute','maven','unzip']
         state: installed
 
