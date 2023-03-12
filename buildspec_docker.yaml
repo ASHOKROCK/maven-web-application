@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=bridge &
+      
+  pre_build:
+    commands:
+      - docker build -t mycustomimage:latest .
+  build:
+    commands:
+      - docker images
+      - docker run -d --name web -p 8090:80 mycustomimage:latest 
