@@ -1,0 +1,9 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:us-east-1:630332435057:task-definition/mynewcloudtask-1:1"
+        LoadBalancerInfo:
+          ContainerName: "newwebapp"
+          ContainerPort: 80
