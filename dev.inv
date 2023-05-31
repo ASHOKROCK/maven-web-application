@@ -1,5 +1,4 @@
 [WEBSERVER]
-10.90.1.122
-[APPSERVER]
-10.90.8.212
+10.0.0.8
+
 ansible_python_interpreter: /usr/bin/python
