@@ -32,18 +32,3 @@ stages:
             effectivePomSkip: false
             sonarQubeRunAnalysis: false
             
-        - task: ArchiveFiles@2
-          inputs:
-            rootFolderOrFile: '$(Build.BinariesDirectory)'
-            includeRootFolder: true
-            archiveType: 'zip'
-            archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-            replaceExistingArchive: true
-            verbose: true
-            quiet: true
-        
-        - task: ExtractFiles@1
-          inputs:
-            archiveFilePatterns: '**/*.zip'
-            cleanDestinationFolder: true
-            overwriteExistingFiles: false
