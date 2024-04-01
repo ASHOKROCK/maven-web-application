@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
-const path = __dirname + '/views/';
+const path = __dirname + '/src/main/';
 const port = 8080;
 
 router.use(function (req,res,next) {
