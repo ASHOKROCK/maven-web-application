@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-docker-kb-demo",
+  "version": "1.0.0",
+  "description": "Node.js Docker KB demonstration",
+  "author": "Your Name <yourname@email.com>",
+  "license": "MIT",
+  "main": "app.js",
+  "keywords": ["nodejs", "kb", "docker"],
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
