@@ -1,0 +1,18 @@
+html{
+	font-family: roboto;
+}
+.navbar {
+	margin-bottom: 0;
+}
+.jumbotron{
+	background: #2B2C7C;
+	color: white;
+	text-align: center;
+}
+.container{
+	text-align: center;
+}
+h2{
+	color: #2B2C7C;
+	font-weight: bold;
+}
