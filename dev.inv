@@ -1,4 +1,2 @@
 [WEBSERVER]
-10.0.0.5
-
-ansible_python_interpreter: /usr/bin/python
+10.0.0.5   ansible_python_interpreter: /usr/bin/python
