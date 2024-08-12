@@ -1,2 +1,3 @@
 [WEBSERVER]
-10.0.0.5   ansible_python_interpreter: /usr/bin/python
+10.0.0.5   ansible_python_interpreter=/usr/bin/python ansible_ssh_user=root ansible_ssh_pass=ashok123 ansible_connection=ssh
+
