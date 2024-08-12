@@ -4,10 +4,8 @@ packer {
       source  = "github.com/hashicorp/azure"
       version = "~> 1"
     }
-    ansible = {
-      source  = "github.com/hashicorp/ansible"
-      version = "~> 1"
-    }
+    
+    
   }
 }
 
@@ -48,9 +46,9 @@ source "azure-arm" "rocky" {
   }
   client_id                         = "d96d7648-a56d-4d9d-8bd8-17af65cbf556"
   client_secret                     = "QYM8Q~1s8HM0LKUwWQKSDuVjWY0SH_MqPYkeObW3"
-  image_offer                       = "CentOS"
-  image_publisher                   = "OpenLogic"
-  image_sku                         = "7.3"
+  image_offer                       = "0001-com-ubuntu-server-jammy"
+  image_publisher                   = "canonical""
+  image_sku                         = "22_04-lts"
   location                          = var.region
   os_type                           = "Linux"
   subscription_id                   = "09b5b7f2-3c09-4648-87bd-6fda71dc4f2b"
@@ -59,8 +57,8 @@ source "azure-arm" "rocky" {
   ssh_username                      = "packer"
   ssh_password                      = "PackerP4sswordNotSecure@"
   ssh_pty                           = true
-  managed_image_resource_group_name = "NEWAZRG"
-  managed_image_name                = "base-${var.arch}-${local.timestamp}"
+  resource_group_name               = "AZRGDEPLOY"
+ 
 
 }
 
@@ -70,7 +68,7 @@ build {
     "source.azure-arm.rocky"
   ]
 
- /*
+ 
   provisioner "ansible" {
     command                 = "ansible-playbook"
     playbook_file           = "main.yml"
@@ -86,5 +84,5 @@ build {
     inline          = ["/usr/sbin/waagent -force -deprovision+user &"]
     inline_shebang  = "/bin/sh -x"
   }
- */
+ 
 }
