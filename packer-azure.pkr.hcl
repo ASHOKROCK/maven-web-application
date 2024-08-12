@@ -20,15 +20,7 @@ locals {
   architecture = var.arch == "amd64" ? "x86_64" : "aarch64"
 }
 
-variable "env" {
-  type    = string
-  default = "dev"
-}
 
-variable "arch" {
-  type    = string
-  default = ""
-}
 
 variable "instance_type" {
   type    = string
@@ -71,7 +63,7 @@ build {
  
   provisioner "ansible" {
     command                 = "ansible-playbook"
-    playbook_file           = "main.yml"
+    playbook_file           = "deploy-docker.yaml"
     user                    = "packer"
     inventory_file_template = "controller ansible_host={{ .Host }} ansible_user={{ .User }} ansible_port={{ .Port }}\n"
     extra_arguments         = local.extra_args
