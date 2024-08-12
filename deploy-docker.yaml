@@ -7,16 +7,16 @@
   
   tasks:
     - name: Install Httpd
-      yum:
-        name: httpd
+      apt:
+        name: apache2
         state: installed
     - name: enable httpd
       service:
-        name: httpd
+        name: apache2
         enabled: yes
     - name: start the httpd
       service:
-        name: httpd
+        name: apache2
         state: started
     - name: COPY STATIC WEBSITE
       copy:
@@ -28,7 +28,7 @@
     - name: check git version
       shell: git --version
     - name: check httpd status
-      shell: systemctl httpd status
+      shell: systemctl apach2 status
     - name: Create a file
       file:
         path:  /root/myfile
