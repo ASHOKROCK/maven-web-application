@@ -1,15 +1,14 @@
----
-- hosts: all
+- hosts: localhost
   become: yes
   become_method: sudo
   gather_facts: false
-  
-  
+
+
   tasks:
     - name: Install Httpd
       apt:
         name: apache2
-        state: installed
+        state: latest
     - name: enable httpd
       service:
         name: apache2
@@ -28,7 +27,7 @@
     - name: check git version
       shell: git --version
     - name: check httpd status
-      shell: systemctl apach2 status
+      shell: systemctl status apache2
     - name: Create a file
       file:
         path:  /root/myfile
